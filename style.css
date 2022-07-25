@@ -71,7 +71,7 @@ body {
   border-radius: 50%;
   transform-style: preserve-3d; 
   animation-name: planetan;
-  animation-duration: 5s;
+  animation-duration: 10s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 }
