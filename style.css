@@ -1,0 +1,293 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
+
+
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  font-size: 10px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  background-color: #08090A; }
+
+#universe {
+  z-index: 1;
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background-position: center 40%;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+#galaxy {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /*perspective: 4000;*/ }
+
+#solar-system {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d; }
+
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  animation-name: orbit;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; }
+
+.orbit .orbit {
+  animation-name: suborbit; }
+
+.pos {
+  position: absolute;
+  top: 50%;
+  width: 2em;
+  height: 2em;
+  margin-top: -1em;
+  margin-left: -1em;
+  transform-style: preserve-3d;
+  animation-name: invert;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; }
+
+#sun, .planet{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  margin-left: -0.5em;
+  border-radius: 50%;
+  transform-style: preserve-3d; 
+  animation-name: planetan;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+  @keyframes  planetan {
+    0% {
+       top: 50%;
+
+    }
+    10% {
+      top: 49%;
+    }
+    20% {
+       top: 51%;
+    }
+    40% {
+      left: 51%;
+    }
+     60% {
+      top: 51%;
+     }
+
+     80% {
+      left: 49%;
+     }
+
+     100% {
+      top: 50%;
+      left: 50%;
+     }
+  }
+
+
+.planet {
+  background-color: #202020;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; }
+
+
+
+/* --------------------------------------------------------------------------- planets index */
+
+
+#earth {
+  z-index: 8; }
+
+#sun {
+  z-index: 1; }
+
+/* --------------------------------------------------------------------------- animations */
+@keyframes orbit {
+  0% {
+    transform: rotateZ(0deg); }
+
+  100% {
+    transform: rotateZ(-360deg); } }
+
+@keyframes suborbit {
+  0% {
+    transform: rotateX(90deg) rotateZ(0deg); }
+
+  100% {
+    transform: rotateX(90deg) rotateZ(-360deg); } }
+
+@keyframes invert {
+  0% {
+    transform: rotateX(-90deg) rotateY(360deg) rotateZ(0deg); }
+
+  100% {
+    transform: rotateX(-90deg) rotateY(0deg) rotateZ(0deg); } }
+
+/* --------------------------------------------------------------------------- opening */
+.view-3D .opening #sun,
+.view-3D .opening .orbit,
+.view-3D .opening .pos,
+.view-3D .opening .planet,
+.view-3D .opening .satelite,
+.view-3D .opening .ring {
+  transition-duration: 4s; }
+
+
+/* --------------------------------------------------------------------------- 2D view */
+
+
+/* --------------------------------------------------------------------------- 3D view */
+.view-3D.zoom-large #sun {
+  transform-style: preserve-3d; }
+
+.view-3D.zoom-large .orbit {
+  transform-style: preserve-3d; }
+
+.view-3D #solar-system {
+  transform: rotateX(43deg) skew(316deg, 341deg);
+}
+
+.view-3D #sun {
+  transform: rotateX(325deg) skew(40deg, 10deg);
+ }
+
+
+.view-3D .planet {
+  transform: rotateX(0deg); }
+
+/* --------------------------------------------------------------------------- large zoom */
+.zoom-large #solar-system {
+  width: 100%; }
+
+/* --------------------------------------------------------------------------- close zoom */
+
+/* --------------------------------------------------------------------------- data */
+/* --------------------------------------------------------------------------- speed */
+
+
+
+#earth .pos,
+#earth .planet,
+#earth.orbit {
+  animation-duration: 22.00021s; }
+
+#earth .orbit .pos,
+#earth .orbit {
+  animation-duration: 0.89764s; }
+
+
+/* --------------------------------------------------------------------------- planets sizes */
+/* --------------------------------------------------------------------------- stretched sizes */
+.scale-stretched #sun {
+  font-size: 54em; }
+
+
+.scale-stretched #earth .planet {
+  font-size: 3.92em; }
+
+
+
+.scale-stretched #earth.orbit {
+  width: 50em;
+  height: 50em;
+  margin-top: -28em;
+  margin-left: -28em; }
+
+.scale-stretched #earth .orbit {
+  width: 6em;
+  height: 6em;
+  margin-top: -3em;
+  margin-left: -3em; }
+
+
+
+.scale-d #earth.orbit {
+  width: 49.50959em;
+  height: 49.50959em;
+  margin-top: -24.75479em;
+  margin-left: -24.75479em; }
+
+.scale-d #mars.orbit {
+  width: 53.58356em;
+  height: 53.58356em;
+  margin-top: -26.79178em;
+  margin-left: -26.79178em; }
+
+
+
+.scale-s #earth.orbit {
+  width: 473.3048em;
+  height: 473.3048em;
+  margin-top: -236.6524em;
+  margin-left: -236.6524em; }
+
+
+
+
+
+
+/* --------------------------------------------------------------------------- earth ; pos: Right */
+#earth .pos {
+  left: 100%;
+  top: 50%; }
+
+#earth .planet {
+  animation-name: shadow-earth; }
+
+@keyframes shadow-earth {
+  0% {
+    box-shadow: inset -4px 0 2px rgba(0, 0, 0, 0.5);
+    /* RIGHT */ }
+
+  25% {
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
+    /* TOP */ }
+
+  50% {
+    box-shadow: inset 4px 0 2px rgba(0, 0, 0, 0.5);
+    /* LEFT */ }
+
+  75% {
+    box-shadow: inset 24px -20px 15px rgba(0, 0, 0, 0.5);
+    /* BOTTOM */ }
+
+  75.01% {
+    box-shadow: inset -24px -20px 15px rgba(0, 0, 0, 0.5);
+    /* BOTTOM */ }
+
+  100% {
+    box-shadow: inset -4px 0 2px rgba(0, 0, 0, 0.5);
+    /* RIGHT */ } }
+
+.scaled.view-3D #earth .planet {
+  box-shadow: inset -4px 0 2px rgba(0, 0, 0, 0.5);
+  /* RIGHT */ }
+
+/* --------------------------------------------------------------------------- moon */
+#earth .orbit .pos {
+  left: 100%;
+  top: 50%; }
+
+ 
